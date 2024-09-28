@@ -10,59 +10,98 @@ import {
     SwitchRouterButton,
     XStack,
     YStack,
-  } from '@my/ui'
-  import { ChevronDown, ChevronUp, X } from '@tamagui/lucide-icons'
-  import { useState } from 'react'
-  import { Platform } from 'react-native'
-  import { useLink } from 'solito/navigation'
-  import {Card} from 'tamagui'
+    Image,
+} from '@my/ui'
+import { ChevronDown, ChevronUp, X } from '@tamagui/lucide-icons'
+import { useState } from 'react'
+import { Platform } from 'react-native'
+import { useLink } from 'solito/navigation'
+import {Card} from 'tamagui'
 import AvatarWithState from './avatarHappylin'
   
-  export function HomeScreen({ pagesMode = false }: { pagesMode?: boolean }) {
+export function HomeScreen({ pagesMode = false }: { pagesMode?: boolean }) {
     const linkTarget = pagesMode ? '/pages-example-user' : '/user'
     const linkProps = useLink({
       href: `${linkTarget}/nate`,
     })
   
     return (
-      <YStack f={1} jc="center" ai="center" gap="$8" p="$4" bg="$background">
-        <XStack
-          pos="absolute"
-          w="100%"
-          t="$6"
-          gap="$6"
-          jc="center"
-          fw="wrap"
-          $sm={{ pos: 'relative', t: 0 }}
-        >
-            <AvatarWithState/>
+      <YStack f={1} jc="flex-start" ai="center" p="$4" bg="white">
+      <YStack w="100%" gap="$4" ai="center">
+        <XStack w="100%" jc="center" ai="center" flexWrap="wrap" gap="$4">
+          <AvatarWithState />
           {Platform.OS === 'web' && (
-            <>
-              <Button>Address</Button> 
-              <Button> +316 3888 6883</Button>
+            <XStack gap="$4" flexWrap="wrap" jc="center">
+              <Button>Voorstraat 123, 3311 ER Dordrecht</Button>
+              <Button>+31 6 3888 6883</Button>
               <SwitchThemeButton />
-
-            </>
-            
+            </XStack>
           )}
         </XStack>
 
-        <YStack gap="$4">
+        <H1 ta="center" col="$color12">
+          Happylin Restaurant
+        </H1>
+        <Paragraph col="$color10" ta="center">
+          Authentic Chinese cuisine in the heart of Dordrecht
+        </Paragraph>
+      </YStack>
+
+      <Separator my="$4" />
+      
+
+        <YStack gap="$4" ai="center">
           <H1 ta="center" col="$color12">
             Happylin Restaurant
           </H1>
-          <Card>
-            <Card.Header />
-            <Card.Footer />
-            {/* asda */}
-            <Card.Background/>
-          </Card>
           <Paragraph col="$color10" ta="center">
-            Here's a basic starter to show navigating from one screen to another.
+            Authentic Chinese  cuisine in the heart of Dordrecht
           </Paragraph>
           <Separator />
-         
-          <Separator />
+          <H1 ta="center" col="$color11" size="$8">
+            Our Menu
+          </H1>
+          <XStack gap="$4" fw="wrap" jc="center">
+            <Card elevate size="$5">
+              <Card.Header>
+                <H1 size="$6">Appetizers</H1>
+              </Card.Header>
+              <Card.Footer p="$2">
+                <Image
+                  source={{ uri: 'https://example.com/appetizers-menu.jpg' }}
+                  width={200}
+                  height={300}
+                  resizeMode="contain"
+                />
+              </Card.Footer>
+            </Card>
+            <Card elevate size="$5">
+              <Card.Header>
+                <H1 size="$6">Main Courses</H1>
+              </Card.Header>
+              <Card.Footer p="$2">
+                <Image
+                  source={{ uri: 'https://example.com/main-courses-menu.jpg' }}
+                  width={200}
+                  height={300}
+                  resizeMode="contain"
+                />
+              </Card.Footer>
+            </Card>
+            <Card elevate size="$5">
+              <Card.Header>
+                <H1 size="$6">Desserts</H1>
+              </Card.Header>
+              <Card.Footer p="$2">
+                <Image
+                  source={{ uri: 'https://example.com/desserts-menu.jpg' }}
+                  width={200}
+                  height={300}
+                  resizeMode="contain"
+                />
+              </Card.Footer>
+            </Card>
+          </XStack>
         </YStack>
   
         <Button {...linkProps}>Link to user</Button>
@@ -130,4 +169,3 @@ import AvatarWithState from './avatarHappylin'
       </>
     )
   }
-  
