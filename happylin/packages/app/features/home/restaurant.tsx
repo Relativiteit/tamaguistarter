@@ -18,7 +18,7 @@ import { Platform } from 'react-native'
 import { useLink } from 'solito/navigation'
 import {Card} from 'tamagui'
 import AvatarWithState from './avatarHappylin'
-  
+
 export function HomeScreen({ pagesMode = false }: { pagesMode?: boolean }) {
     const linkTarget = pagesMode ? '/pages-example-user' : '/user'
     const linkProps = useLink({
@@ -30,7 +30,7 @@ export function HomeScreen({ pagesMode = false }: { pagesMode?: boolean }) {
       <YStack w="100%" gap="$4" ai="center">
         <XStack w="100%" jc="center" ai="center" flexWrap="wrap" gap="$4">
           <AvatarWithState />
-          {Platform.OS === 'web' && (
+          {Platform.OS === 'web' &&  (
             <XStack gap="$4" flexWrap="wrap" jc="center">
               <Button>Voorstraat 123, 3311 ER Dordrecht</Button>
               <Button>+31 6 3888 6883</Button>
@@ -38,13 +38,6 @@ export function HomeScreen({ pagesMode = false }: { pagesMode?: boolean }) {
             </XStack>
           )}
         </XStack>
-
-        <H1 ta="center" col="$color12">
-          Happylin Restaurant
-        </H1>
-        <Paragraph col="$color10" ta="center">
-          Authentic Chinese cuisine in the heart of Dordrecht
-        </Paragraph>
       </YStack>
 
       <Separator my="$4" />
@@ -64,7 +57,7 @@ export function HomeScreen({ pagesMode = false }: { pagesMode?: boolean }) {
           <XStack gap="$4" fw="wrap" jc="center">
             <Card elevate size="$5">
               <Card.Header>
-                <H1 size="$6">Appetizers</H1>
+                <H1 size="$6">Broodjes, gerechten, snacks</H1>
               </Card.Header>
               <Card.Footer p="$2">
                 <Image
@@ -77,7 +70,7 @@ export function HomeScreen({ pagesMode = false }: { pagesMode?: boolean }) {
             </Card>
             <Card elevate size="$5">
               <Card.Header>
-                <H1 size="$6">Main Courses</H1>
+                <H1 size="$6">Drank, vega, extra's</H1>
               </Card.Header>
               <Card.Footer p="$2">
                 <Image
@@ -88,19 +81,7 @@ export function HomeScreen({ pagesMode = false }: { pagesMode?: boolean }) {
                 />
               </Card.Footer>
             </Card>
-            <Card elevate size="$5">
-              <Card.Header>
-                <H1 size="$6">Desserts</H1>
-              </Card.Header>
-              <Card.Footer p="$2">
-                <Image
-                  source={{ uri: 'https://example.com/desserts-menu.jpg' }}
-                  width={200}
-                  height={300}
-                  resizeMode="contain"
-                />
-              </Card.Footer>
-            </Card>
+            
           </XStack>
         </YStack>
   
